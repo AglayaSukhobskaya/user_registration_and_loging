@@ -4,7 +4,6 @@ import com.sukhobskaia.TestTask.dto.UserDTO;
 import com.sukhobskaia.TestTask.models.User;
 import com.sukhobskaia.TestTask.services.RegistrationService;
 import com.sukhobskaia.TestTask.util.UserValidator;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
