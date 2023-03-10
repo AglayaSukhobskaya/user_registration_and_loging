@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/auth/registration}" th:object="${user}">
+    <p>REGISTER PAGE</p>
+    <label for="username">Username</label>
+    <input type="text" th:field="*{username}" id="username">
+    <div style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+    <br/>
+    <label for="plain_password">Password</label>
+    <input type="password" th:field="*{plainPassword}" id="plain_password">
+    <div style="color: red" th:if="${#fields.hasErrors('plainPassword')}" th:errors="*{plainPassword}"></div>
+    <br/>
+    <label for="repeated_password">Confirm Password</label>
+    <input type="password" th:field="*{repeatedPassword}" id="repeated_password">
+    <div style="color: red" th:if="${#fields.hasErrors('repeatedPassword')}" th:errors="*{repeatedPassword}"></div>
+    <br/>
+    <label for="age">Age</label>
+    <input type="text" th:field="*{age}" id="age">
+    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+    <br/>
+    <input type="submit" value="REGISTER"/>
+
+    <div th:if="${param.error}" style="color: red">
+        Incorrect username, password or age.
+    </div>
+</form>
+
+<form method="GET" action="/auth/login">
+    <input type="submit" value="BACK TO LOGIN"/>
+</form>
+
+</body>
+</html>
