@@ -1,48 +1,44 @@
-# TestTask from p.7 till p.9
+# user_registration_and_loging
+Spring Boot application for registration and logging users.
 
-CREATE TABLE students (
-  id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(50) NOT NULL,
-  score INT NOT NULL,
-  emotion VARCHAR(50),
-  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (id)
-);
+LOGIN PAGE
 
-INSERT INTO students (name, score, emotion)
-VALUES
-  ('Kevin', 80, 'happy'),
-  ('Josh', 90, 'sad'),
-  ('Kevin', 85, 'happy'),
-  ('Kevin', 75, 'sad'),
-  ('Josh', 65, 'angry'),
-  ('David', 85, 'happy'),
-  ('Josh', 90, 'sad'),
-  ('David', 75, 'sad'),
-  ('Josh', 85, 'sad'),
-  ('Josh', 90, 'happy'),
-  ('Kevin', 70, 'sad'),
-  ('Kevin', 80, 'sad'),
-  ('Kevin', 73, 'angry'),
-  ('David', 75, 'sad'),
-  ('David', 65, 'sad');
+![image](https://user-images.githubusercontent.com/106002453/231106383-19df707a-6421-4a3d-9ccb-d4c2681f7f30.png)
 
-7. Create a Query to find the average score of the data based on each name:
+REGISTER PAGE
 
-SELECT name, AVG(score) AS avg_score
-FROM students
-GROUP BY name;
+![image](https://user-images.githubusercontent.com/106002453/231106477-5fb25521-e440-42fc-bf25-27b5433d1ed9.png)
 
-8. Using the data table in question no 7, make a query to find the emotion mode value of
-each name:
+VIEW PAGE
 
-SELECT name, MODE() WITHIN GROUP (ORDER BY emotion) AS mode_enam
-FROM students
-GROUP BY name;
+![image](https://user-images.githubusercontent.com/106002453/231106522-f03c53bc-e462-4c85-acd6-32429a2e6ecd.png)
 
-9. Using the data table in question no 7, make a query to find the average score and mode
-emotion of each name and the same date:
 
-SELECT name, created, AVG(score) AS avg_score, MODE() WITHIN GROUP (ORDER BY emotion) AS mode_enam
-FROM students
-GROUP BY name, created;
+## Getting Started
+The following programs must be installed on your computer:
+ Java Development Kit (JDK);
+ development environment (IDE) such as Eclipse, IntelliJ IDEA or another;
+ Apache Maven;
+ MySQL database.
+
+Clone this repository to your local computer:
+
+<code>git clone https://github.com/AglayaSukhobskaya/user_registration_and_loging</code>
+
+Open the project in the development environment.
+Download all the necessary sources and documentation from Maven.
+
+Create a new PostgreSQL database and implement a connection to the service. All connection settings you can find in ***resources/application.properties***.
+To create the necessary tables in the database execute the SQL queries from file ***resaurces/db.sql***.
+
+Now the application is ready to running.
+
+## Running the application
+First you need to run REST API service: method main() from class ***ru.sukhobskaya.springcourse.RestApp.RestAppApplication***.
+
+After that run the Consumer: method main() from class ***ru.sukhobskaya.springcourse.RestApp.Consumer***.
+
+If everything is done correctly, you will see in the console a report on the registration of a new sensor, a report on adding 1000 random measurements to the database as well as the values of all measurements.
+
+## Technology Stack
+Spring Boot / Spring Security / Hibernate Validator / MySQL
