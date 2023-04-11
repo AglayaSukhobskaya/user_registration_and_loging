@@ -36,7 +36,7 @@ Now the application is ready to running.
 ## Running the application
 Run application: method main() from class ***com.sukhobskaia.TestTask.TestTaskApplication***.
 
-Open any brouser you have and enter the following addresse: **http://localhost:8080/**
+Open any brouser you have and enter the following address: **http://localhost:8080/**
 
 If everything is done correctly, the loging page will open: **http://localhost:8080/auth/login**
 
