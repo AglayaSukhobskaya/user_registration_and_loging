@@ -28,17 +28,17 @@ Clone this repository to your local computer:
 Open the project in the development environment.
 Download all the necessary sources and documentation from Maven.
 
-Create a new PostgreSQL database and implement a connection to the service. All connection settings you can find in ***resources/application.properties***.
-To create the necessary tables in the database execute the SQL queries from file ***resaurces/db.sql***.
+Create a new MySQL database and implement a connection to the service. All connection settings you can find in ***/resources/application.properties***.
+To create the necessary tables in the database execute the SQL queries from file ***/resaurces/db.sql***.
 
 Now the application is ready to running.
 
 ## Running the application
-First you need to run REST API service: method main() from class ***ru.sukhobskaya.springcourse.RestApp.RestAppApplication***.
+Run application: method main() from class ***com.sukhobskaia.TestTask.TestTaskApplication***.
 
-After that run the Consumer: method main() from class ***ru.sukhobskaya.springcourse.RestApp.Consumer***.
+Open any brouser you have and enter the following addresse: **http://localhost:8080/**
 
-If everything is done correctly, you will see in the console a report on the registration of a new sensor, a report on adding 1000 random measurements to the database as well as the values of all measurements.
+If everything is done correctly, the loging page will open: **http://localhost:8080/auth/login**
 
 ## Technology Stack
-Spring Boot / Spring Security / Hibernate Validator / MySQL
+Spring Boot / Spring Security / Hibernate Validator / MySQL / Thymeleaf
