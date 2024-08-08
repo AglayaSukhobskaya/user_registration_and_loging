@@ -1,6 +1,6 @@
 package com.sukhobskaia.TestTask.config;
 
-import com.sukhobskaia.TestTask.services.UserDetailsService;
+import com.sukhobskaia.TestTask.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,11 +12,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final UserDetailsService userDetailsService;
+    private final UserService userService;
 
     @Autowired
-    public SecurityConfig(UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
+    public SecurityConfig(UserService userService) {
+        this.userService = userService;
     }
 
     @Override
@@ -34,8 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService)
-                .passwordEncoder(getPasswordEncoder());
+        auth.userDetailsService(userService).passwordEncoder(getPasswordEncoder());
     }
 
     @Bean

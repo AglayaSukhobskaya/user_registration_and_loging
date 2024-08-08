@@ -1,18 +1,12 @@
 package com.sukhobskaia.TestTask.security;
 
-import com.sukhobskaia.TestTask.models.User;
+import com.sukhobskaia.TestTask.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class UserDetailsImpl implements UserDetails {
-    private final User user;
-
-    public UserDetailsImpl(User user) {
-        this.user = user;
-    }
-
+public record UserDetailsImpl(User user) implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -46,9 +40,5 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public User getUser() {
-        return user;
     }
 }

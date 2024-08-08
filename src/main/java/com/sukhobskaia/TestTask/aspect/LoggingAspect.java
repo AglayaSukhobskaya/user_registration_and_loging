@@ -15,19 +15,19 @@ public class LoggingAspect {
 
     private Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-    @Before("execution(* com.sukhobskaia.TestTask.repositories.*.*(..))")
+    @Before("execution(* com.sukhobskaia.TestTask.repository.*.*(..))")
     public void logBefore(JoinPoint joinPoint) {
         logger.info("Method call: {}", joinPoint.getSignature().getName());
     }
 
-    @AfterReturning(pointcut = "execution(* com.sukhobskaia.TestTask.repositories.*.*(..))",
+    @AfterReturning(pointcut = "execution(* com.sukhobskaia.TestTask.repository.*.*(..))",
             returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
         logger.info("Method {} completed. Result: {}",
                 joinPoint.getSignature().getName(), result);
     }
 
-    @AfterThrowing(pointcut = "execution(* com.sukhobskaia.TestTask.repositories.*.*(..))",
+    @AfterThrowing(pointcut = "execution(* com.sukhobskaia.TestTask.repository.*.*(..))",
             throwing = "error")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable error) {
         logger.error("Method error {} : {}",

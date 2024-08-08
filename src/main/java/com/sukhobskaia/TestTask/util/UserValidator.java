@@ -1,7 +1,7 @@
 package com.sukhobskaia.TestTask.util;
 
-import com.sukhobskaia.TestTask.models.User;
-import com.sukhobskaia.TestTask.services.UsersService;
+import com.sukhobskaia.TestTask.model.User;
+import com.sukhobskaia.TestTask.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -9,10 +9,10 @@ import org.springframework.validation.Validator;
 
 @Component
 public class UserValidator implements Validator {
-    private final UsersService peopleService;
+    private final UserService peopleService;
 
     @Autowired
-    public UserValidator(UsersService peopleService) {
+    public UserValidator(UserService peopleService) {
         this.peopleService = peopleService;
     }
 
@@ -25,7 +25,7 @@ public class UserValidator implements Validator {
     public void validate(Object target, Errors errors) {
         User person = (User) target;
 
-        if (peopleService.findOne(person.getUsername()) != null) {
+        if (peopleService.getByUsername(person.getUsername()) != null) {
             errors.rejectValue("username", "","Person with this username already exists!");
         }
     }
