@@ -17,5 +17,5 @@ public record UserDTO(@NotEmpty(message = "Username should not be empty")
                       String repeatedPassword,
 
                       @Min(value = 18, message = "Age should be over 18 years")
-                      int age) {
+                      Integer age) {
 }

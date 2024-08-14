@@ -23,5 +23,5 @@ public class User {
     String password;
 
     @Column(name = "age")
-    int age;
+    Integer age;
 }
