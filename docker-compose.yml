@@ -1,0 +1,12 @@
+services:
+  test_task_db:
+    image: mysql
+    container_name: test_task_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass123
+      - MYSQL_DATABASE=test_task_db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass123
+    ports:
+      - "127.0.0.1:3306:3306"
